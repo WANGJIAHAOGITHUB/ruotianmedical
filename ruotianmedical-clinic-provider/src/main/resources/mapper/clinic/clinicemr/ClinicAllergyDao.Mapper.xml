@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.clinic.clinicemr.dao.ClinicAllergyDao">
+	<select id="findListByQuery" parameterType="ClinicAllergy" resultMap="resultMap">
+		select
+		    eca.id
+		    eca.clinic
+		    eca.history
+		    eca.allergen
+		    eca.sx
+		    eca.sxCode
+		    eca.code
+		    eca.medicine
+		    eca.statusCode
+		    eca.seriousCode
+		    eca.signCode
+		    eca.status
+		    eca.createAdmin
+		    eca.createTime
+		    eca.updateAdmin
+		    eca.updateTime
+		from
+			emr_clinic_allergy eca
+		<where>
+			<trim suffixOverrides="and">
+                <if test="id != null and id != ''">eca.id=#{id} and </if>
+                <if test="clinic != null and clinic != ''">eca.clinic=#{clinic} and </if>
+                <if test="history != null and history != ''">eca.history=#{history} and </if>
+                <if test="allergen != null and allergen != ''">eca.allergen=#{allergen} and </if>
+                <if test="sx != null and sx != ''">eca.sx=#{sx} and </if>
+                <if test="sxCode != null and sxCode != ''">eca.sxCode=#{sxCode} and </if>
+                <if test="code != null and code != ''">eca.code=#{code} and </if>
+                <if test="medicine != null and medicine != ''">eca.medicine=#{medicine} and </if>
+                <if test="statusCode != null and statusCode != ''">eca.statusCode=#{statusCode} and </if>
+                <if test="seriousCode != null and seriousCode != ''">eca.seriousCode=#{seriousCode} and </if>
+                <if test="signCode != null and signCode != ''">eca.signCode=#{signCode} and </if>
+                <if test="status != null and status != ''">eca.status=#{status} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="ClinicAllergy">
+		insert into emr_clinic_allergy(
+			<trim suffixOverrides=",">
+		        <if test="id != null and id != ''">id, </if>
+		        <if test="clinic != null and clinic != ''">clinic, </if>
+		        <if test="history != null and history != ''">history, </if>
+		        <if test="allergen != null and allergen != ''">allergen, </if>
+		        <if test="sx != null and sx != ''">sx, </if>
+		        <if test="sxCode != null and sxCode != ''">sxCode, </if>
+		        <if test="code != null and code != ''">code, </if>
+		        <if test="medicine != null and medicine != ''">medicine, </if>
+		        <if test="statusCode != null and statusCode != ''">statusCode, </if>
+		        <if test="seriousCode != null and seriousCode != ''">seriousCode, </if>
+		        <if test="signCode != null and signCode != ''">signCode, </if>
+		        <if test="status != null and status != ''">status, </if>
+		        <if test="createAdmin != null and createAdmin != ''">createAdmin, </if>
+		        <if test="createTime != null and createTime != ''">createTime, </if>
+		        <if test="updateAdmin != null and updateAdmin != ''">updateAdmin, </if>
+		        <if test="updateTime != null and updateTime != ''">updateTime, </if>
+			</trim>
+		) values(
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">#{id}, </if>
+				<if test="clinic != null and clinic != ''">#{clinic}, </if>
+				<if test="history != null and history != ''">#{history}, </if>
+				<if test="allergen != null and allergen != ''">#{allergen}, </if>
+				<if test="sx != null and sx != ''">#{sx}, </if>
+				<if test="sxCode != null and sxCode != ''">#{sxCode}, </if>
+				<if test="code != null and code != ''">#{code}, </if>
+				<if test="medicine != null and medicine != ''">#{medicine}, </if>
+				<if test="statusCode != null and statusCode != ''">#{statusCode}, </if>
+				<if test="seriousCode != null and seriousCode != ''">#{seriousCode}, </if>
+				<if test="signCode != null and signCode != ''">#{signCode}, </if>
+				<if test="status != null and status != ''">#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+			</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="ClinicAllergy">
+		update emr_clinic_allergy
+		<set>
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">id=#{id}, </if>
+				<if test="clinic != null and clinic != ''">clinic=#{clinic}, </if>
+				<if test="history != null and history != ''">history=#{history}, </if>
+				<if test="allergen != null and allergen != ''">allergen=#{allergen}, </if>
+				<if test="sx != null and sx != ''">sx=#{sx}, </if>
+				<if test="sxCode != null and sxCode != ''">sxCode=#{sxCode}, </if>
+				<if test="code != null and code != ''">code=#{code}, </if>
+				<if test="medicine != null and medicine != ''">medicine=#{medicine}, </if>
+				<if test="statusCode != null and statusCode != ''">statusCode=#{statusCode}, </if>
+				<if test="seriousCode != null and seriousCode != ''">seriousCode=#{seriousCode}, </if>
+				<if test="signCode != null and signCode != ''">signCode=#{signCode}, </if>
+				<if test="status != null and status != ''">status=#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">createAdmin=#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">createTime=#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">updateAdmin=#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime=#{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id=#{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="ClinicAllergy">
+		<id property="id" javaType="java.lang.String" column="id"/>
+	    <result property="id" javaType="java.lang.String" column="id"/>
+	    <result property="clinic" javaType="java.lang.String" column="clinic"/>
+	    <result property="history" javaType="java.lang.String" column="history"/>
+	    <result property="allergen" javaType="java.lang.String" column="allergen"/>
+	    <result property="sx" javaType="java.lang.String" column="sx"/>
+	    <result property="sxCode" javaType="java.lang.String" column="sxCode"/>
+	    <result property="code" javaType="java.lang.String" column="code"/>
+	    <result property="medicine" javaType="java.lang.String" column="medicine"/>
+	    <result property="statusCode" javaType="java.lang.String" column="statusCode"/>
+	    <result property="seriousCode" javaType="java.lang.String" column="seriousCode"/>
+	    <result property="signCode" javaType="java.lang.String" column="signCode"/>
+	    <result property="status" javaType="java.lang.String" column="status"/>
+	    <result property="createAdmin" javaType="java.lang.String" column="createAdmin"/>
+	    <result property="createTime" javaType="java.util.Date" column="createTime"/>
+	    <result property="updateAdmin" javaType="java.lang.String" column="updateAdmin"/>
+	    <result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+	</resultMap>
+</mapper>

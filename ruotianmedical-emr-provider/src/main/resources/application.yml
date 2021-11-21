@@ -1,0 +1,7 @@
+server:
+  port: 11166
+spring:
+  application:
+    name: ruotianmedical-emr-provider
+  profiles:
+    active: commons, data

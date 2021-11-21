@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.clinic.clinicemr.dao.ClinicPastDiseaseDao">
+	<select id="findListByQuery" parameterType="ClinicPastDisease" resultMap="resultMap">
+		select
+		    ecpd.id
+		    ecpd.clinic
+		    ecpd.history
+		    ecpd.mentalDiagnosis
+		    ecpd.name
+		    ecpd.code
+		    ecpd.org
+		    ecpd.orgCode
+		    ecpd.diagnosisDate
+		    ecpd.statusCode
+		    ecpd.status
+		    ecpd.createAdmin
+		    ecpd.createTime
+		    ecpd.updateAdmin
+		    ecpd.updateTime
+		from
+			emr_clinic_past_disease ecpd
+		<where>
+			<trim suffixOverrides="and">
+                <if test="id != null and id != ''">ecpd.id=#{id} and </if>
+                <if test="clinic != null and clinic != ''">ecpd.clinic=#{clinic} and </if>
+                <if test="history != null and history != ''">ecpd.history=#{history} and </if>
+                <if test="mentalDiagnosis != null and mentalDiagnosis != ''">ecpd.mentalDiagnosis=#{mentalDiagnosis} and </if>
+                <if test="name != null and name != ''">ecpd.name=#{name} and </if>
+                <if test="code != null and code != ''">ecpd.code=#{code} and </if>
+                <if test="org != null and org != ''">ecpd.org=#{org} and </if>
+                <if test="orgCode != null and orgCode != ''">ecpd.orgCode=#{orgCode} and </if>
+                <if test="diagnosisDate != null and diagnosisDate != ''">ecpd.diagnosisDate=#{diagnosisDate} and </if>
+                <if test="statusCode != null and statusCode != ''">ecpd.statusCode=#{statusCode} and </if>
+                <if test="status != null and status != ''">ecpd.status=#{status} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="ClinicPastDisease">
+		insert into emr_clinic_past_disease(
+			<trim suffixOverrides=",">
+		        <if test="id != null and id != ''">id, </if>
+		        <if test="clinic != null and clinic != ''">clinic, </if>
+		        <if test="history != null and history != ''">history, </if>
+		        <if test="mentalDiagnosis != null and mentalDiagnosis != ''">mentalDiagnosis, </if>
+		        <if test="name != null and name != ''">name, </if>
+		        <if test="code != null and code != ''">code, </if>
+		        <if test="org != null and org != ''">org, </if>
+		        <if test="orgCode != null and orgCode != ''">orgCode, </if>
+		        <if test="diagnosisDate != null and diagnosisDate != ''">diagnosisDate, </if>
+		        <if test="statusCode != null and statusCode != ''">statusCode, </if>
+		        <if test="status != null and status != ''">status, </if>
+		        <if test="createAdmin != null and createAdmin != ''">createAdmin, </if>
+		        <if test="createTime != null and createTime != ''">createTime, </if>
+		        <if test="updateAdmin != null and updateAdmin != ''">updateAdmin, </if>
+		        <if test="updateTime != null and updateTime != ''">updateTime, </if>
+			</trim>
+		) values(
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">#{id}, </if>
+				<if test="clinic != null and clinic != ''">#{clinic}, </if>
+				<if test="history != null and history != ''">#{history}, </if>
+				<if test="mentalDiagnosis != null and mentalDiagnosis != ''">#{mentalDiagnosis}, </if>
+				<if test="name != null and name != ''">#{name}, </if>
+				<if test="code != null and code != ''">#{code}, </if>
+				<if test="org != null and org != ''">#{org}, </if>
+				<if test="orgCode != null and orgCode != ''">#{orgCode}, </if>
+				<if test="diagnosisDate != null and diagnosisDate != ''">#{diagnosisDate}, </if>
+				<if test="statusCode != null and statusCode != ''">#{statusCode}, </if>
+				<if test="status != null and status != ''">#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+			</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="ClinicPastDisease">
+		update emr_clinic_past_disease
+		<set>
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">id=#{id}, </if>
+				<if test="clinic != null and clinic != ''">clinic=#{clinic}, </if>
+				<if test="history != null and history != ''">history=#{history}, </if>
+				<if test="mentalDiagnosis != null and mentalDiagnosis != ''">mentalDiagnosis=#{mentalDiagnosis}, </if>
+				<if test="name != null and name != ''">name=#{name}, </if>
+				<if test="code != null and code != ''">code=#{code}, </if>
+				<if test="org != null and org != ''">org=#{org}, </if>
+				<if test="orgCode != null and orgCode != ''">orgCode=#{orgCode}, </if>
+				<if test="diagnosisDate != null and diagnosisDate != ''">diagnosisDate=#{diagnosisDate}, </if>
+				<if test="statusCode != null and statusCode != ''">statusCode=#{statusCode}, </if>
+				<if test="status != null and status != ''">status=#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">createAdmin=#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">createTime=#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">updateAdmin=#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime=#{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id=#{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="ClinicPastDisease">
+		<id property="id" javaType="java.lang.String" column="id"/>
+	    <result property="id" javaType="java.lang.String" column="id"/>
+	    <result property="clinic" javaType="java.lang.String" column="clinic"/>
+	    <result property="history" javaType="java.lang.String" column="history"/>
+	    <result property="mentalDiagnosis" javaType="java.lang.String" column="mentalDiagnosis"/>
+	    <result property="name" javaType="java.lang.String" column="name"/>
+	    <result property="code" javaType="java.lang.String" column="code"/>
+	    <result property="org" javaType="java.lang.String" column="org"/>
+	    <result property="orgCode" javaType="java.lang.String" column="orgCode"/>
+	    <result property="diagnosisDate" javaType="java.util.Date" column="diagnosisDate"/>
+	    <result property="statusCode" javaType="java.lang.String" column="statusCode"/>
+	    <result property="status" javaType="java.lang.String" column="status"/>
+	    <result property="createAdmin" javaType="java.lang.String" column="createAdmin"/>
+	    <result property="createTime" javaType="java.util.Date" column="createTime"/>
+	    <result property="updateAdmin" javaType="java.lang.String" column="updateAdmin"/>
+	    <result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+	</resultMap>
+</mapper>

@@ -1,0 +1,7 @@
+server:
+  port: 11133
+spring:
+  application:
+    name: ruotianmedical-patient-consumer
+  profiles:
+    active: commons

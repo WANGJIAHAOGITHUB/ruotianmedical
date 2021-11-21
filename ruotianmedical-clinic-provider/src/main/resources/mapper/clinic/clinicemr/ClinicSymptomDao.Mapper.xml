@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.clinic.clinicemr.dao.ClinicSymptomDao">
+	<select id="findListByQuery" parameterType="ClinicSymptom" resultMap="resultMap">
+		select
+		    ecs.id
+		    ecs.clinic
+		    ecs.symptom
+		    ecs.codeName
+		    ecs.code
+		    ecs.symptomBeginTime
+		    ecs.symptomEndTime
+		    ecs.description
+		    ecs.acuteDegreeCode
+		    ecs.severityCode
+		    ecs.firstVisitSign
+		    ecs.status
+		    ecs.createAdmin
+		    ecs.createTime
+		    ecs.updateAdmin
+		    ecs.updateTime
+		from
+			emr_clinic_symptom ecs
+		<where>
+			<trim suffixOverrides="and">
+                <if test="id != null and id != ''">ecs.id=#{id} and </if>
+                <if test="clinic != null and clinic != ''">ecs.clinic=#{clinic} and </if>
+                <if test="symptom != null and symptom != ''">ecs.symptom=#{symptom} and </if>
+                <if test="codeName != null and codeName != ''">ecs.codeName=#{codeName} and </if>
+                <if test="code != null and code != ''">ecs.code=#{code} and </if>
+                <if test="symptomBeginTime != null and symptomBeginTime != ''">ecs.symptomBeginTime=#{symptomBeginTime} and </if>
+                <if test="symptomEndTime != null and symptomEndTime != ''">ecs.symptomEndTime=#{symptomEndTime} and </if>
+                <if test="description != null and description != ''">ecs.description=#{description} and </if>
+                <if test="acuteDegreeCode != null and acuteDegreeCode != ''">ecs.acuteDegreeCode=#{acuteDegreeCode} and </if>
+                <if test="severityCode != null and severityCode != ''">ecs.severityCode=#{severityCode} and </if>
+                <if test="firstVisitSign != null and firstVisitSign != ''">ecs.firstVisitSign=#{firstVisitSign} and </if>
+                <if test="status != null and status != ''">ecs.status=#{status} and </if>
+                <if test="createAdmin != null and createAdmin != ''">ecs.createAdmin=#{createAdmin} and </if>
+                <if test="createTime != null and createTime != ''">ecs.createTime=#{createTime} and </if>
+                <if test="updateAdmin != null and updateAdmin != ''">ecs.updateAdmin=#{updateAdmin} and </if>
+                <if test="updateTime != null and updateTime != ''">ecs.updateTime=#{updateTime} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="ClinicSymptom">
+		insert into emr_clinic_symptom(
+			<trim suffixOverrides=",">
+		        <if test="id != null and id != ''">id, </if>
+		        <if test="clinic != null and clinic != ''">clinic, </if>
+		        <if test="symptom != null and symptom != ''">symptom, </if>
+		        <if test="codeName != null and codeName != ''">codeName, </if>
+		        <if test="code != null and code != ''">code, </if>
+		        <if test="symptomBeginTime != null and symptomBeginTime != ''">symptomBeginTime, </if>
+		        <if test="symptomEndTime != null and symptomEndTime != ''">symptomEndTime, </if>
+		        <if test="description != null and description != ''">description, </if>
+		        <if test="acuteDegreeCode != null and acuteDegreeCode != ''">acuteDegreeCode, </if>
+		        <if test="severityCode != null and severityCode != ''">severityCode, </if>
+		        <if test="firstVisitSign != null and firstVisitSign != ''">firstVisitSign, </if>
+		        <if test="status != null and status != ''">status, </if>
+		        <if test="createAdmin != null and createAdmin != ''">createAdmin, </if>
+		        <if test="createTime != null and createTime != ''">createTime, </if>
+		        <if test="updateAdmin != null and updateAdmin != ''">updateAdmin, </if>
+		        <if test="updateTime != null and updateTime != ''">updateTime, </if>
+			</trim>
+		) values(
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">#{id}, </if>
+				<if test="clinic != null and clinic != ''">#{clinic}, </if>
+				<if test="symptom != null and symptom != ''">#{symptom}, </if>
+				<if test="codeName != null and codeName != ''">#{codeName}, </if>
+				<if test="code != null and code != ''">#{code}, </if>
+				<if test="symptomBeginTime != null and symptomBeginTime != ''">#{symptomBeginTime}, </if>
+				<if test="symptomEndTime != null and symptomEndTime != ''">#{symptomEndTime}, </if>
+				<if test="description != null and description != ''">#{description}, </if>
+				<if test="acuteDegreeCode != null and acuteDegreeCode != ''">#{acuteDegreeCode}, </if>
+				<if test="severityCode != null and severityCode != ''">#{severityCode}, </if>
+				<if test="firstVisitSign != null and firstVisitSign != ''">#{firstVisitSign}, </if>
+				<if test="status != null and status != ''">#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+			</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="ClinicSymptom">
+		update emr_clinic_symptom
+		<set>
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">id=#{id}, </if>
+				<if test="clinic != null and clinic != ''">clinic=#{clinic}, </if>
+				<if test="symptom != null and symptom != ''">symptom=#{symptom}, </if>
+				<if test="codeName != null and codeName != ''">codeName=#{codeName}, </if>
+				<if test="code != null and code != ''">code=#{code}, </if>
+				<if test="symptomBeginTime != null and symptomBeginTime != ''">symptomBeginTime=#{symptomBeginTime}, </if>
+				<if test="symptomEndTime != null and symptomEndTime != ''">symptomEndTime=#{symptomEndTime}, </if>
+				<if test="description != null and description != ''">description=#{description}, </if>
+				<if test="acuteDegreeCode != null and acuteDegreeCode != ''">acuteDegreeCode=#{acuteDegreeCode}, </if>
+				<if test="severityCode != null and severityCode != ''">severityCode=#{severityCode}, </if>
+				<if test="firstVisitSign != null and firstVisitSign != ''">firstVisitSign=#{firstVisitSign}, </if>
+				<if test="status != null and status != ''">status=#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">createAdmin=#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">createTime=#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">updateAdmin=#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime=#{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id=#{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="ClinicSymptom">
+		<id property="id" javaType="java.lang.String" column="id"/>
+	    <result property="id" javaType="java.lang.String" column="id"/>
+	    <result property="clinic" javaType="java.lang.String" column="clinic"/>
+	    <result property="symptom" javaType="java.lang.String" column="symptom"/>
+	    <result property="codeName" javaType="java.lang.String" column="codeName"/>
+	    <result property="code" javaType="java.lang.String" column="code"/>
+	    <result property="symptomBeginTime" javaType="java.util.Date" column="symptomBeginTime"/>
+	    <result property="symptomEndTime" javaType="java.util.Date" column="symptomEndTime"/>
+	    <result property="description" javaType="java.lang.String" column="description"/>
+	    <result property="acuteDegreeCode" javaType="java.lang.String" column="acuteDegreeCode"/>
+	    <result property="severityCode" javaType="java.lang.String" column="severityCode"/>
+	    <result property="firstVisitSign" javaType="java.lang.String" column="firstVisitSign"/>
+	    <result property="status" javaType="java.lang.String" column="status"/>
+	    <result property="createAdmin" javaType="java.lang.String" column="createAdmin"/>
+	    <result property="createTime" javaType="java.util.Date" column="createTime"/>
+	    <result property="updateAdmin" javaType="java.lang.String" column="updateAdmin"/>
+	    <result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+	</resultMap>
+</mapper>

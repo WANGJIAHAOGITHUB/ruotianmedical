@@ -1,0 +1,7 @@
+server:
+  port: 11122
+spring:
+  application:
+    name: ruotianmedical-system-admin-provider
+  profiles:
+    active: commons, data

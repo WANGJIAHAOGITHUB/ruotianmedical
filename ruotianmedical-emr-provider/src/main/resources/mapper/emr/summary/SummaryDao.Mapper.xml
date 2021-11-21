@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.emr.summary.dao.SummaryDao">
+	<select id="findListByQuery" parameterType="Summary" resultMap="resultMap">
+		select
+		es.id
+		es.docName
+		es.docCatCode
+		es.docOrgName
+		es.docOrgCode
+		es.docNo
+		es.docEffDate
+		es.docExpDate
+		es.srvNoCatCode
+		es.srvNo
+		es.srvNoEffDate
+		es.srvNoExpDate
+		es.srvNoOrgName
+		es.srvObject
+		es.srvObjectCode
+		es.srvName
+		es.srvPatientCatCode
+		es.aboBloodCode
+		es.rhBloodCode
+		es.genderCode
+		es.age
+		es.nationality
+		es.ethnicCode
+		es.maritalCode
+		es.occName
+		es.occCode
+		es.birthday
+		es.birthPlace
+		es.addrUnitName
+		es.addrCatCode
+		es.addrProvence
+		es.addrCity
+		es.addrDistrict
+		es.addrSubdistrict
+		es.addrVillage
+		es.addrHouseNo
+		es.addrZipCode
+		es.addrDivisionCode
+		es.eventName
+		es.eventCatCode
+		es.eventBeginTime
+		es.eventEndTime
+		es.eventAddress
+		es.eventPlace
+		es.eventParticipant
+		es.eventReason
+		es.eventResult
+		es.status
+		es.createUser
+		es.createTime
+		es.updateUser
+		es.updateTime
+		from
+		emr_summary es
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">es.id=#{id} and </if>
+				<if test="docName != null and docName != ''">es.docName=#{docName} and </if>
+				<if test="docCatCode != null and docCatCode != ''">es.docCatCode=#{docCatCode} and </if>
+				<if test="docOrgName != null and docOrgName != ''">es.docOrgName=#{docOrgName} and </if>
+				<if test="docOrgCode != null and docOrgCode != ''">es.docOrgCode=#{docOrgCode} and </if>
+				<if test="docNo != null and docNo != ''">es.docNo=#{docNo} and </if>
+				<if test="docEffDate != null and docEffDate != ''">es.docEffDate=#{docEffDate} and </if>
+				<if test="docExpDate != null and docExpDate != ''">es.docExpDate=#{docExpDate} and </if>
+				<if test="srvNoCatCode != null and srvNoCatCode != ''">es.srvNoCatCode=#{srvNoCatCode} and </if>
+				<if test="srvNo != null and srvNo != ''">es.srvNo=#{srvNo} and </if>
+				<if test="srvNoEffDate != null and srvNoEffDate != ''">es.srvNoEffDate=#{srvNoEffDate} and </if>
+				<if test="srvNoExpDate != null and srvNoExpDate != ''">es.srvNoExpDate=#{srvNoExpDate} and </if>
+				<if test="srvNoOrgName != null and srvNoOrgName != ''">es.srvNoOrgName=#{srvNoOrgName} and </if>
+				<if test="srvObject != null and srvObject != ''">es.srvObject=#{srvObject} and </if>
+				<if test="srvObjectCode != null and srvObjectCode != ''">es.srvObjectCode=#{srvObjectCode} and </if>
+				<if test="srvName != null and srvName != ''">es.srvName=#{srvName} and </if>
+				<if test="srvPatientCatCode != null and srvPatientCatCode != ''">es.srvPatientCatCode=#{srvPatientCatCode} and </if>
+				<if test="aboBloodCode != null and aboBloodCode != ''">es.aboBloodCode=#{aboBloodCode} and </if>
+				<if test="rhBloodCode != null and rhBloodCode != ''">es.rhBloodCode=#{rhBloodCode} and </if>
+				<if test="genderCode != null and genderCode != ''">es.genderCode=#{genderCode} and </if>
+				<if test="age != null and age != ''">es.age=#{age} and </if>
+				<if test="nationality != null and nationality != ''">es.nationality=#{nationality} and </if>
+				<if test="ethnicCode != null and ethnicCode != ''">es.ethnicCode=#{ethnicCode} and </if>
+				<if test="maritalCode != null and maritalCode != ''">es.maritalCode=#{maritalCode} and </if>
+				<if test="occName != null and occName != ''">es.occName=#{occName} and </if>
+				<if test="occCode != null and occCode != ''">es.occCode=#{occCode} and </if>
+				<if test="birthday != null and birthday != ''">es.birthday=#{birthday} and </if>
+				<if test="birthPlace != null and birthPlace != ''">es.birthPlace=#{birthPlace} and </if>
+				<if test="addrUnitName != null and addrUnitName != ''">es.addrUnitName=#{addrUnitName} and </if>
+				<if test="addrCatCode != null and addrCatCode != ''">es.addrCatCode=#{addrCatCode} and </if>
+				<if test="addrProvence != null and addrProvence != ''">es.addrProvence=#{addrProvence} and </if>
+				<if test="addrCity != null and addrCity != ''">es.addrCity=#{addrCity} and </if>
+				<if test="addrDistrict != null and addrDistrict != ''">es.addrDistrict=#{addrDistrict} and </if>
+				<if test="addrSubdistrict != null and addrSubdistrict != ''">es.addrSubdistrict=#{addrSubdistrict} and </if>
+				<if test="addrVillage != null and addrVillage != ''">es.addrVillage=#{addrVillage} and </if>
+				<if test="addrHouseNo != null and addrHouseNo != ''">es.addrHouseNo=#{addrHouseNo} and </if>
+				<if test="addrZipCode != null and addrZipCode != ''">es.addrZipCode=#{addrZipCode} and </if>
+				<if test="addrDivisionCode != null and addrDivisionCode != ''">es.addrDivisionCode=#{addrDivisionCode} and </if>
+				<if test="eventName != null and eventName != ''">es.eventName=#{eventName} and </if>
+				<if test="eventCatCode != null and eventCatCode != ''">es.eventCatCode=#{eventCatCode} and </if>
+				<if test="eventBeginTime != null and eventBeginTime != ''">es.eventBeginTime=#{eventBeginTime} and </if>
+				<if test="eventEndTime != null and eventEndTime != ''">es.eventEndTime=#{eventEndTime} and </if>
+				<if test="eventAddress != null and eventAddress != ''">es.eventAddress=#{eventAddress} and </if>
+				<if test="eventPlace != null and eventPlace != ''">es.eventPlace=#{eventPlace} and </if>
+				<if test="eventParticipant != null and eventParticipant != ''">es.eventParticipant=#{eventParticipant} and </if>
+				<if test="eventReason != null and eventReason != ''">es.eventReason=#{eventReason} and </if>
+				<if test="eventResult != null and eventResult != ''">es.eventResult=#{eventResult} and </if>
+				<if test="status != null and status != ''">es.status=#{status} and </if>
+				<if test="createUser != null and createUser != ''">es.createUser=#{createUser} and </if>
+				<if test="createTime != null and createTime != ''">es.createTime=#{createTime} and </if>
+				<if test="updateUser != null and updateUser != ''">es.updateUser=#{updateUser} and </if>
+				<if test="updateTime != null and updateTime != ''">es.updateTime=#{updateTime} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="Summary">
+		insert into emr_summary(
+		<trim suffixOverrides=",">
+			<if test="id != null and id != ''">id, </if>
+			<if test="docName != null and docName != ''">docName, </if>
+			<if test="docCatCode != null and docCatCode != ''">docCatCode, </if>
+			<if test="docOrgName != null and docOrgName != ''">docOrgName, </if>
+			<if test="docOrgCode != null and docOrgCode != ''">docOrgCode, </if>
+			<if test="docNo != null and docNo != ''">docNo, </if>
+			<if test="docEffDate != null and docEffDate != ''">docEffDate, </if>
+			<if test="docExpDate != null and docExpDate != ''">docExpDate, </if>
+			<if test="srvNoCatCode != null and srvNoCatCode != ''">srvNoCatCode, </if>
+			<if test="srvNo != null and srvNo != ''">srvNo, </if>
+			<if test="srvNoEffDate != null and srvNoEffDate != ''">srvNoEffDate, </if>
+			<if test="srvNoExpDate != null and srvNoExpDate != ''">srvNoExpDate, </if>
+			<if test="srvNoOrgName != null and srvNoOrgName != ''">srvNoOrgName, </if>
+			<if test="srvObject != null and srvObject != ''">srvObject, </if>
+			<if test="srvObjectCode != null and srvObjectCode != ''">srvObjectCode, </if>
+			<if test="srvName != null and srvName != ''">srvName, </if>
+			<if test="srvPatientCatCode != null and srvPatientCatCode != ''">srvPatientCatCode, </if>
+			<if test="aboBloodCode != null and aboBloodCode != ''">aboBloodCode, </if>
+			<if test="rhBloodCode != null and rhBloodCode != ''">rhBloodCode, </if>
+			<if test="genderCode != null and genderCode != ''">genderCode, </if>
+			<if test="age != null and age != ''">age, </if>
+			<if test="nationality != null and nationality != ''">nationality, </if>
+			<if test="ethnicCode != null and ethnicCode != ''">ethnicCode, </if>
+			<if test="maritalCode != null and maritalCode != ''">maritalCode, </if>
+			<if test="occName != null and occName != ''">occName, </if>
+			<if test="occCode != null and occCode != ''">occCode, </if>
+			<if test="birthday != null and birthday != ''">birthday, </if>
+			<if test="birthPlace != null and birthPlace != ''">birthPlace, </if>
+			<if test="addrUnitName != null and addrUnitName != ''">addrUnitName, </if>
+			<if test="addrCatCode != null and addrCatCode != ''">addrCatCode, </if>
+			<if test="addrProvence != null and addrProvence != ''">addrProvence, </if>
+			<if test="addrCity != null and addrCity != ''">addrCity, </if>
+			<if test="addrDistrict != null and addrDistrict != ''">addrDistrict, </if>
+			<if test="addrSubdistrict != null and addrSubdistrict != ''">addrSubdistrict, </if>
+			<if test="addrVillage != null and addrVillage != ''">addrVillage, </if>
+			<if test="addrHouseNo != null and addrHouseNo != ''">addrHouseNo, </if>
+			<if test="addrZipCode != null and addrZipCode != ''">addrZipCode, </if>
+			<if test="addrDivisionCode != null and addrDivisionCode != ''">addrDivisionCode, </if>
+			<if test="eventName != null and eventName != ''">eventName, </if>
+			<if test="eventCatCode != null and eventCatCode != ''">eventCatCode, </if>
+			<if test="eventBeginTime != null and eventBeginTime != ''">eventBeginTime, </if>
+			<if test="eventEndTime != null and eventEndTime != ''">eventEndTime, </if>
+			<if test="eventAddress != null and eventAddress != ''">eventAddress, </if>
+			<if test="eventPlace != null and eventPlace != ''">eventPlace, </if>
+			<if test="eventParticipant != null and eventParticipant != ''">eventParticipant, </if>
+			<if test="eventReason != null and eventReason != ''">eventReason, </if>
+			<if test="eventResult != null and eventResult != ''">eventResult, </if>
+			<if test="status != null and status != ''">status, </if>
+			<if test="createUser != null and createUser != ''">createUser, </if>
+			<if test="createTime != null and createTime != ''">createTime, </if>
+			<if test="updateUser != null and updateUser != ''">updateUser, </if>
+			<if test="updateTime != null and updateTime != ''">updateTime, </if>
+		</trim>
+		) values(
+		<trim suffixOverrides=",">
+			<if test="id != null and id != ''">#{id}, </if>
+			<if test="docName != null and docName != ''">#{docName}, </if>
+			<if test="docCatCode != null and docCatCode != ''">#{docCatCode}, </if>
+			<if test="docOrgName != null and docOrgName != ''">#{docOrgName}, </if>
+			<if test="docOrgCode != null and docOrgCode != ''">#{docOrgCode}, </if>
+			<if test="docNo != null and docNo != ''">#{docNo}, </if>
+			<if test="docEffDate != null and docEffDate != ''">#{docEffDate}, </if>
+			<if test="docExpDate != null and docExpDate != ''">#{docExpDate}, </if>
+			<if test="srvNoCatCode != null and srvNoCatCode != ''">#{srvNoCatCode}, </if>
+			<if test="srvNo != null and srvNo != ''">#{srvNo}, </if>
+			<if test="srvNoEffDate != null and srvNoEffDate != ''">#{srvNoEffDate}, </if>
+			<if test="srvNoExpDate != null and srvNoExpDate != ''">#{srvNoExpDate}, </if>
+			<if test="srvNoOrgName != null and srvNoOrgName != ''">#{srvNoOrgName}, </if>
+			<if test="srvObject != null and srvObject != ''">#{srvObject}, </if>
+			<if test="srvObjectCode != null and srvObjectCode != ''">#{srvObjectCode}, </if>
+			<if test="srvName != null and srvName != ''">#{srvName}, </if>
+			<if test="srvPatientCatCode != null and srvPatientCatCode != ''">#{srvPatientCatCode}, </if>
+			<if test="aboBloodCode != null and aboBloodCode != ''">#{aboBloodCode}, </if>
+			<if test="rhBloodCode != null and rhBloodCode != ''">#{rhBloodCode}, </if>
+			<if test="genderCode != null and genderCode != ''">#{genderCode}, </if>
+			<if test="age != null and age != ''">#{age}, </if>
+			<if test="nationality != null and nationality != ''">#{nationality}, </if>
+			<if test="ethnicCode != null and ethnicCode != ''">#{ethnicCode}, </if>
+			<if test="maritalCode != null and maritalCode != ''">#{maritalCode}, </if>
+			<if test="occName != null and occName != ''">#{occName}, </if>
+			<if test="occCode != null and occCode != ''">#{occCode}, </if>
+			<if test="birthday != null and birthday != ''">#{birthday}, </if>
+			<if test="birthPlace != null and birthPlace != ''">#{birthPlace}, </if>
+			<if test="addrUnitName != null and addrUnitName != ''">#{addrUnitName}, </if>
+			<if test="addrCatCode != null and addrCatCode != ''">#{addrCatCode}, </if>
+			<if test="addrProvence != null and addrProvence != ''">#{addrProvence}, </if>
+			<if test="addrCity != null and addrCity != ''">#{addrCity}, </if>
+			<if test="addrDistrict != null and addrDistrict != ''">#{addrDistrict}, </if>
+			<if test="addrSubdistrict != null and addrSubdistrict != ''">#{addrSubdistrict}, </if>
+			<if test="addrVillage != null and addrVillage != ''">#{addrVillage}, </if>
+			<if test="addrHouseNo != null and addrHouseNo != ''">#{addrHouseNo}, </if>
+			<if test="addrZipCode != null and addrZipCode != ''">#{addrZipCode}, </if>
+			<if test="addrDivisionCode != null and addrDivisionCode != ''">#{addrDivisionCode}, </if>
+			<if test="eventName != null and eventName != ''">#{eventName}, </if>
+			<if test="eventCatCode != null and eventCatCode != ''">#{eventCatCode}, </if>
+			<if test="eventBeginTime != null and eventBeginTime != ''">#{eventBeginTime}, </if>
+			<if test="eventEndTime != null and eventEndTime != ''">#{eventEndTime}, </if>
+			<if test="eventAddress != null and eventAddress != ''">#{eventAddress}, </if>
+			<if test="eventPlace != null and eventPlace != ''">#{eventPlace}, </if>
+			<if test="eventParticipant != null and eventParticipant != ''">#{eventParticipant}, </if>
+			<if test="eventReason != null and eventReason != ''">#{eventReason}, </if>
+			<if test="eventResult != null and eventResult != ''">#{eventResult}, </if>
+			<if test="status != null and status != ''">#{status}, </if>
+			<if test="createUser != null and createUser != ''">#{createUser}, </if>
+			<if test="createTime != null and createTime != ''">#{createTime}, </if>
+			<if test="updateUser != null and updateUser != ''">#{updateUser}, </if>
+			<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+		</trim>
+		)
+	</insert>
+
+	<update id="modify" parameterType="Summary">
+		update emr_summary
+		<set>
+			<trim suffixOverrides=",">
+				<if test="docName != null and docName != ''">docName=#{docName}, </if>
+				<if test="docCatCode != null and docCatCode != ''">docCatCode=#{docCatCode}, </if>
+				<if test="docOrgName != null and docOrgName != ''">docOrgName=#{docOrgName}, </if>
+				<if test="docOrgCode != null and docOrgCode != ''">docOrgCode=#{docOrgCode}, </if>
+				<if test="docNo != null and docNo != ''">docNo=#{docNo}, </if>
+				<if test="docEffDate != null and docEffDate != ''">docEffDate=#{docEffDate}, </if>
+				<if test="docExpDate != null and docExpDate != ''">docExpDate=#{docExpDate}, </if>
+				<if test="srvNoCatCode != null and srvNoCatCode != ''">srvNoCatCode=#{srvNoCatCode}, </if>
+				<if test="srvNo != null and srvNo != ''">srvNo=#{srvNo}, </if>
+				<if test="srvNoEffDate != null and srvNoEffDate != ''">srvNoEffDate=#{srvNoEffDate}, </if>
+				<if test="srvNoExpDate != null and srvNoExpDate != ''">srvNoExpDate=#{srvNoExpDate}, </if>
+				<if test="srvNoOrgName != null and srvNoOrgName != ''">srvNoOrgName=#{srvNoOrgName}, </if>
+				<if test="srvObject != null and srvObject != ''">srvObject=#{srvObject}, </if>
+				<if test="srvObjectCode != null and srvObjectCode != ''">srvObjectCode=#{srvObjectCode}, </if>
+				<if test="srvName != null and srvName != ''">srvName=#{srvName}, </if>
+				<if test="srvPatientCatCode != null and srvPatientCatCode != ''">srvPatientCatCode=#{srvPatientCatCode}, </if>
+				<if test="aboBloodCode != null and aboBloodCode != ''">aboBloodCode=#{aboBloodCode}, </if>
+				<if test="rhBloodCode != null and rhBloodCode != ''">rhBloodCode=#{rhBloodCode}, </if>
+				<if test="genderCode != null and genderCode != ''">genderCode=#{genderCode}, </if>
+				<if test="age != null and age != ''">age=#{age}, </if>
+				<if test="nationality != null and nationality != ''">nationality=#{nationality}, </if>
+				<if test="ethnicCode != null and ethnicCode != ''">ethnicCode=#{ethnicCode}, </if>
+				<if test="maritalCode != null and maritalCode != ''">maritalCode=#{maritalCode}, </if>
+				<if test="occName != null and occName != ''">occName=#{occName}, </if>
+				<if test="occCode != null and occCode != ''">occCode=#{occCode}, </if>
+				<if test="birthday != null and birthday != ''">birthday=#{birthday}, </if>
+				<if test="birthPlace != null and birthPlace != ''">birthPlace=#{birthPlace}, </if>
+				<if test="addrUnitName != null and addrUnitName != ''">addrUnitName=#{addrUnitName}, </if>
+				<if test="addrCatCode != null and addrCatCode != ''">addrCatCode=#{addrCatCode}, </if>
+				<if test="addrProvence != null and addrProvence != ''">addrProvence=#{addrProvence}, </if>
+				<if test="addrCity != null and addrCity != ''">addrCity=#{addrCity}, </if>
+				<if test="addrDistrict != null and addrDistrict != ''">addrDistrict=#{addrDistrict}, </if>
+				<if test="addrSubdistrict != null and addrSubdistrict != ''">addrSubdistrict=#{addrSubdistrict}, </if>
+				<if test="addrVillage != null and addrVillage != ''">addrVillage=#{addrVillage}, </if>
+				<if test="addrHouseNo != null and addrHouseNo != ''">addrHouseNo=#{addrHouseNo}, </if>
+				<if test="addrZipCode != null and addrZipCode != ''">addrZipCode=#{addrZipCode}, </if>
+				<if test="addrDivisionCode != null and addrDivisionCode != ''">addrDivisionCode=#{addrDivisionCode}, </if>
+				<if test="eventName != null and eventName != ''">eventName=#{eventName}, </if>
+				<if test="eventCatCode != null and eventCatCode != ''">eventCatCode=#{eventCatCode}, </if>
+				<if test="eventBeginTime != null and eventBeginTime != ''">eventBeginTime=#{eventBeginTime}, </if>
+				<if test="eventEndTime != null and eventEndTime != ''">eventEndTime=#{eventEndTime}, </if>
+				<if test="eventAddress != null and eventAddress != ''">eventAddress=#{eventAddress}, </if>
+				<if test="eventPlace != null and eventPlace != ''">eventPlace=#{eventPlace}, </if>
+				<if test="eventParticipant != null and eventParticipant != ''">eventParticipant=#{eventParticipant}, </if>
+				<if test="eventReason != null and eventReason != ''">eventReason=#{eventReason}, </if>
+				<if test="eventResult != null and eventResult != ''">eventResult=#{eventResult}, </if>
+				<if test="status != null and status != ''">status=#{status}, </if>
+				<if test="createUser != null and createUser != ''">createUser=#{createUser}, </if>
+				<if test="createTime != null and createTime != ''">createTime=#{createTime}, </if>
+				<if test="updateUser != null and updateUser != ''">updateUser=#{updateUser}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime=#{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id=#{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="Summary">
+		<id property="id" javaType="java.lang.String" column="id"/>
+		<result property="id" javaType="java.lang.String" column="id"/>
+		<result property="docName" javaType="java.lang.String" column="docName"/>
+		<result property="docCatCode" javaType="java.lang.String" column="docCatCode"/>
+		<result property="docOrgName" javaType="java.lang.String" column="docOrgName"/>
+		<result property="docOrgCode" javaType="java.lang.String" column="docOrgCode"/>
+		<result property="docNo" javaType="java.lang.String" column="docNo"/>
+		<result property="docEffDate" javaType="java.util.Date" column="docEffDate"/>
+		<result property="docExpDate" javaType="java.util.Date" column="docExpDate"/>
+		<result property="srvNoCatCode" javaType="java.lang.String" column="srvNoCatCode"/>
+		<result property="srvNo" javaType="java.lang.String" column="srvNo"/>
+		<result property="srvNoEffDate" javaType="java.util.Date" column="srvNoEffDate"/>
+		<result property="srvNoExpDate" javaType="java.util.Date" column="srvNoExpDate"/>
+		<result property="srvNoOrgName" javaType="java.lang.String" column="srvNoOrgName"/>
+		<result property="srvObject" javaType="java.lang.String" column="srvObject"/>
+		<result property="srvObjectCode" javaType="java.lang.String" column="srvObjectCode"/>
+		<result property="srvName" javaType="java.lang.String" column="srvName"/>
+		<result property="srvPatientCatCode" javaType="java.lang.String" column="srvPatientCatCode"/>
+		<result property="aboBloodCode" javaType="java.lang.String" column="aboBloodCode"/>
+		<result property="rhBloodCode" javaType="java.lang.String" column="rhBloodCode"/>
+		<result property="genderCode" javaType="java.lang.String" column="genderCode"/>
+		<result property="age" javaType="java.lang.Integer" column="age"/>
+		<result property="nationality" javaType="java.lang.String" column="nationality"/>
+		<result property="ethnicCode" javaType="java.lang.String" column="ethnicCode"/>
+		<result property="maritalCode" javaType="java.lang.String" column="maritalCode"/>
+		<result property="occName" javaType="java.lang.String" column="occName"/>
+		<result property="occCode" javaType="java.lang.String" column="occCode"/>
+		<result property="birthday" javaType="java.util.Date" column="birthday"/>
+		<result property="birthPlace" javaType="java.lang.String" column="birthPlace"/>
+		<result property="addrUnitName" javaType="java.lang.String" column="addrUnitName"/>
+		<result property="addrCatCode" javaType="java.lang.String" column="addrCatCode"/>
+		<result property="addrProvence" javaType="java.lang.String" column="addrProvence"/>
+		<result property="addrCity" javaType="java.lang.String" column="addrCity"/>
+		<result property="addrDistrict" javaType="java.lang.String" column="addrDistrict"/>
+		<result property="addrSubdistrict" javaType="java.lang.String" column="addrSubdistrict"/>
+		<result property="addrVillage" javaType="java.lang.String" column="addrVillage"/>
+		<result property="addrHouseNo" javaType="java.lang.String" column="addrHouseNo"/>
+		<result property="addrZipCode" javaType="java.lang.String" column="addrZipCode"/>
+		<result property="addrDivisionCode" javaType="java.lang.String" column="addrDivisionCode"/>
+		<result property="eventName" javaType="java.lang.String" column="eventName"/>
+		<result property="eventCatCode" javaType="java.lang.String" column="eventCatCode"/>
+		<result property="eventBeginTime" javaType="java.util.Date" column="eventBeginTime"/>
+		<result property="eventEndTime" javaType="java.util.Date" column="eventEndTime"/>
+		<result property="eventAddress" javaType="java.lang.String" column="eventAddress"/>
+		<result property="eventPlace" javaType="java.lang.String" column="eventPlace"/>
+		<result property="eventParticipant" javaType="java.lang.String" column="eventParticipant"/>
+		<result property="eventReason" javaType="java.lang.String" column="eventReason"/>
+		<result property="eventResult" javaType="java.lang.String" column="eventResult"/>
+		<result property="status" javaType="java.lang.String" column="status"/>
+		<result property="createUser" javaType="java.lang.String" column="createUser"/>
+		<result property="createTime" javaType="java.util.Date" column="createTime"/>
+		<result property="updateUser" javaType="java.lang.String" column="updateUser"/>
+		<result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+	</resultMap>
+</mapper>

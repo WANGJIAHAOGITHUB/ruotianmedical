@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.clinic.clinicemr.dao.ClinicPresentDiseaseDao">
+	<select id="findListByQuery" parameterType="ClinicPresentDisease" resultMap="resultMap">
+		select
+		    ecpd.id
+		    ecpd.clinic
+		    ecpd.beginDate
+		    ecpd.situationDesc
+		    ecpd.sxReason
+		    ecpd.sxFeature
+		    ecpd.sxOther
+		    ecpd.treatment
+		    ecpd.ordinarySituation
+		    ecpd.baseSituation
+		    ecpd.status
+		    ecpd.createAdmin
+		    ecpd.createTime
+		    ecpd.updateAdmin
+		    ecpd.updateTime
+		from
+			emr_clinic_present_disease ecpd
+		<where>
+			<trim suffixOverrides="and">
+                <if test="id != null and id != ''">ecpd.id=#{id} and </if>
+                <if test="clinic != null and clinic != ''">ecpd.clinic=#{clinic} and </if>
+                <if test="beginDate != null and beginDate != ''">ecpd.beginDate=#{beginDate} and </if>
+                <if test="situationDesc != null and situationDesc != ''">ecpd.situationDesc=#{situationDesc} and </if>
+                <if test="sxReason != null and sxReason != ''">ecpd.sxReason=#{sxReason} and </if>
+                <if test="sxFeature != null and sxFeature != ''">ecpd.sxFeature=#{sxFeature} and </if>
+                <if test="sxOther != null and sxOther != ''">ecpd.sxOther=#{sxOther} and </if>
+                <if test="treatment != null and treatment != ''">ecpd.treatment=#{treatment} and </if>
+                <if test="ordinarySituation != null and ordinarySituation != ''">ecpd.ordinarySituation=#{ordinarySituation} and </if>
+                <if test="baseSituation != null and baseSituation != ''">ecpd.baseSituation=#{baseSituation} and </if>
+                <if test="status != null and status != ''">ecpd.status=#{status} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="ClinicPresentDisease">
+		insert into emr_clinic_present_disease(
+			<trim suffixOverrides=",">
+		        <if test="id != null and id != ''">id, </if>
+		        <if test="clinic != null and clinic != ''">clinic, </if>
+		        <if test="beginDate != null and beginDate != ''">beginDate, </if>
+		        <if test="situationDesc != null and situationDesc != ''">situationDesc, </if>
+		        <if test="sxReason != null and sxReason != ''">sxReason, </if>
+		        <if test="sxFeature != null and sxFeature != ''">sxFeature, </if>
+		        <if test="sxOther != null and sxOther != ''">sxOther, </if>
+		        <if test="treatment != null and treatment != ''">treatment, </if>
+		        <if test="ordinarySituation != null and ordinarySituation != ''">ordinarySituation, </if>
+		        <if test="baseSituation != null and baseSituation != ''">baseSituation, </if>
+		        <if test="status != null and status != ''">status, </if>
+		        <if test="createAdmin != null and createAdmin != ''">createAdmin, </if>
+		        <if test="createTime != null and createTime != ''">createTime, </if>
+		        <if test="updateAdmin != null and updateAdmin != ''">updateAdmin, </if>
+		        <if test="updateTime != null and updateTime != ''">updateTime, </if>
+			</trim>
+		) values(
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">#{id}, </if>
+				<if test="clinic != null and clinic != ''">#{clinic}, </if>
+				<if test="beginDate != null and beginDate != ''">#{beginDate}, </if>
+				<if test="situationDesc != null and situationDesc != ''">#{situationDesc}, </if>
+				<if test="sxReason != null and sxReason != ''">#{sxReason}, </if>
+				<if test="sxFeature != null and sxFeature != ''">#{sxFeature}, </if>
+				<if test="sxOther != null and sxOther != ''">#{sxOther}, </if>
+				<if test="treatment != null and treatment != ''">#{treatment}, </if>
+				<if test="ordinarySituation != null and ordinarySituation != ''">#{ordinarySituation}, </if>
+				<if test="baseSituation != null and baseSituation != ''">#{baseSituation}, </if>
+				<if test="status != null and status != ''">#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+			</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="ClinicPresentDisease">
+		update emr_clinic_present_disease
+		<set>
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">id=#{id}, </if>
+				<if test="clinic != null and clinic != ''">clinic=#{clinic}, </if>
+				<if test="beginDate != null and beginDate != ''">beginDate=#{beginDate}, </if>
+				<if test="situationDesc != null and situationDesc != ''">situationDesc=#{situationDesc}, </if>
+				<if test="sxReason != null and sxReason != ''">sxReason=#{sxReason}, </if>
+				<if test="sxFeature != null and sxFeature != ''">sxFeature=#{sxFeature}, </if>
+				<if test="sxOther != null and sxOther != ''">sxOther=#{sxOther}, </if>
+				<if test="treatment != null and treatment != ''">treatment=#{treatment}, </if>
+				<if test="ordinarySituation != null and ordinarySituation != ''">ordinarySituation=#{ordinarySituation}, </if>
+				<if test="baseSituation != null and baseSituation != ''">baseSituation=#{baseSituation}, </if>
+				<if test="status != null and status != ''">status=#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">createAdmin=#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">createTime=#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">updateAdmin=#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime=#{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id=#{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="ClinicPresentDisease">
+		<id property="id" javaType="java.lang.String" column="id"/>
+	    <result property="id" javaType="java.lang.String" column="id"/>
+	    <result property="clinic" javaType="java.lang.String" column="clinic"/>
+	    <result property="beginDate" javaType="java.util.Date" column="beginDate"/>
+	    <result property="situationDesc" javaType="java.lang.String" column="situationDesc"/>
+	    <result property="sxReason" javaType="java.lang.String" column="sxReason"/>
+	    <result property="sxFeature" javaType="java.lang.String" column="sxFeature"/>
+	    <result property="sxOther" javaType="java.lang.String" column="sxOther"/>
+	    <result property="treatment" javaType="java.lang.String" column="treatment"/>
+	    <result property="ordinarySituation" javaType="java.lang.String" column="ordinarySituation"/>
+	    <result property="baseSituation" javaType="java.lang.String" column="baseSituation"/>
+	    <result property="status" javaType="java.lang.String" column="status"/>
+	    <result property="createAdmin" javaType="java.lang.String" column="createAdmin"/>
+	    <result property="createTime" javaType="java.util.Date" column="createTime"/>
+	    <result property="updateAdmin" javaType="java.lang.String" column="updateAdmin"/>
+	    <result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+	</resultMap>
+</mapper>

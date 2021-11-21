@@ -1,0 +1,7 @@
+server:
+  port: 22444
+spring:
+  application:
+    name: ruotianmedical-clinic-provider
+  profiles:
+    active: commons, data

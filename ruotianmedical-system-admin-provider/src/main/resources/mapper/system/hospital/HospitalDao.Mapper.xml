@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.system.hospital.dao.HospitalDao">
+	<select id="findListByQuery" parameterType="Hospital" resultMap="resultMap">
+		select
+		    sh.id
+		    sh.name
+		    sh.orgCode
+		    sh.charge
+		    sh.province
+		    sh.city
+		    sh.district
+		    sh.subdistrict
+		    sh.village
+		    sh.houseNo
+		    sh.zipCode
+		    sh.phone
+		    sh.email
+		    sh.status
+		    sh.createUser
+		    sh.createTime
+		    sh.updateUser
+		    sh.updateTime
+		from
+			sys_hospital sh
+		<where>
+			<trim suffixOverrides="and">
+                <if test="id != null and id != ''">sh.id=#{id} and </if>
+                <if test="name != null and name != ''">sh.name=#{name} and </if>
+                <if test="orgCode != null and orgCode != ''">sh.orgCode=#{orgCode} and </if>
+                <if test="charge != null and charge != ''">sh.charge=#{charge} and </if>
+                <if test="province != null and province != ''">sh.province=#{province} and </if>
+                <if test="city != null and city != ''">sh.city=#{city} and </if>
+                <if test="district != null and district != ''">sh.district=#{district} and </if>
+                <if test="subdistrict != null and subdistrict != ''">sh.subdistrict=#{subdistrict} and </if>
+                <if test="village != null and village != ''">sh.village=#{village} and </if>
+                <if test="houseNo != null and houseNo != ''">sh.houseNo=#{houseNo} and </if>
+                <if test="zipCode != null and zipCode != ''">sh.zipCode=#{zipCode} and </if>
+                <if test="phone != null and phone != ''">sh.phone=#{phone} and </if>
+                <if test="email != null and email != ''">sh.email=#{email} and </if>
+                <if test="status != null and status != ''">sh.status=#{status} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="Hospital">
+		insert into sys_hospital(
+			<trim suffixOverrides=",">
+		        <if test="id != null and id != ''">id, </if>
+		        <if test="name != null and name != ''">name, </if>
+		        <if test="orgCode != null and orgCode != ''">orgCode, </if>
+		        <if test="charge != null and charge != ''">charge, </if>
+		        <if test="province != null and province != ''">province, </if>
+		        <if test="city != null and city != ''">city, </if>
+		        <if test="district != null and district != ''">district, </if>
+		        <if test="subdistrict != null and subdistrict != ''">subdistrict, </if>
+		        <if test="village != null and village != ''">village, </if>
+		        <if test="houseNo != null and houseNo != ''">houseNo, </if>
+		        <if test="zipCode != null and zipCode != ''">zipCode, </if>
+		        <if test="phone != null and phone != ''">phone, </if>
+		        <if test="email != null and email != ''">email, </if>
+		        <if test="status != null and status != ''">status, </if>
+		        <if test="createUser != null and createUser != ''">createUser, </if>
+		        <if test="createTime != null and createTime != ''">createTime, </if>
+		        <if test="updateUser != null and updateUser != ''">updateUser, </if>
+		        <if test="updateTime != null and updateTime != ''">updateTime, </if>
+			</trim>
+		) values(
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">#{id}, </if>
+				<if test="name != null and name != ''">#{name}, </if>
+				<if test="orgCode != null and orgCode != ''">#{orgCode}, </if>
+				<if test="charge != null and charge != ''">#{charge}, </if>
+				<if test="province != null and province != ''">#{province}, </if>
+				<if test="city != null and city != ''">#{city}, </if>
+				<if test="district != null and district != ''">#{district}, </if>
+				<if test="subdistrict != null and subdistrict != ''">#{subdistrict}, </if>
+				<if test="village != null and village != ''">#{village}, </if>
+				<if test="houseNo != null and houseNo != ''">#{houseNo}, </if>
+				<if test="zipCode != null and zipCode != ''">#{zipCode}, </if>
+				<if test="phone != null and phone != ''">#{phone}, </if>
+				<if test="email != null and email != ''">#{email}, </if>
+				<if test="status != null and status != ''">#{status}, </if>
+				<if test="createUser != null and createUser != ''">#{createUser}, </if>
+				<if test="createTime != null and createTime != ''">#{createTime}, </if>
+				<if test="updateUser != null and updateUser != ''">#{updateUser}, </if>
+				<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+			</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="Hospital">
+		update sys_hospital
+		<set>
+			<trim suffixOverrides=",">
+				<if test="name != null and name != ''">name=#{name}, </if>
+				<if test="orgCode != null and orgCode != ''">orgCode=#{orgCode}, </if>
+				<if test="charge != null and charge != ''">charge=#{charge}, </if>
+				<if test="province != null and province != ''">province=#{province}, </if>
+				<if test="city != null and city != ''">city=#{city}, </if>
+				<if test="district != null and district != ''">district=#{district}, </if>
+				<if test="subdistrict != null and subdistrict != ''">subdistrict=#{subdistrict}, </if>
+				<if test="village != null and village != ''">village=#{village}, </if>
+				<if test="houseNo != null and houseNo != ''">houseNo=#{houseNo}, </if>
+				<if test="zipCode != null and zipCode != ''">zipCode=#{zipCode}, </if>
+				<if test="phone != null and phone != ''">phone=#{phone}, </if>
+				<if test="email != null and email != ''">email=#{email}, </if>
+				<if test="status != null and status != ''">status=#{status}, </if>
+				<if test="createUser != null and createUser != ''">createUser=#{createUser}, </if>
+				<if test="createTime != null and createTime != ''">createTime=#{createTime}, </if>
+				<if test="updateUser != null and updateUser != ''">updateUser=#{updateUser}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime=#{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id=#{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="Hospital">
+		<id property="id" javaType="java.lang.String" column="id"/>
+	    <result property="id" javaType="java.lang.String" column="id"/>
+	    <result property="name" javaType="java.lang.String" column="name"/>
+	    <result property="orgCode" javaType="java.lang.String" column="orgCode"/>
+	    <result property="charge" javaType="java.lang.String" column="charge"/>
+	    <result property="province" javaType="java.lang.String" column="province"/>
+	    <result property="city" javaType="java.lang.String" column="city"/>
+	    <result property="district" javaType="java.lang.String" column="district"/>
+	    <result property="subdistrict" javaType="java.lang.String" column="subdistrict"/>
+	    <result property="village" javaType="java.lang.String" column="village"/>
+	    <result property="houseNo" javaType="java.lang.String" column="houseNo"/>
+	    <result property="zipCode" javaType="java.lang.String" column="zipCode"/>
+	    <result property="phone" javaType="java.lang.String" column="phone"/>
+	    <result property="email" javaType="java.lang.String" column="email"/>
+	    <result property="status" javaType="java.lang.String" column="status"/>
+	    <result property="createUser" javaType="java.lang.String" column="createUser"/>
+	    <result property="createTime" javaType="java.util.Date" column="createTime"/>
+	    <result property="updateUser" javaType="java.lang.String" column="updateUser"/>
+	    <result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+	</resultMap>
+</mapper>

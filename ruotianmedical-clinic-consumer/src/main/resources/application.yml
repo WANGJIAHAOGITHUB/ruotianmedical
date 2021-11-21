@@ -1,0 +1,7 @@
+server:
+  port: 22333
+spring:
+  application:
+    name: ruotianmedical-clinc-consumer
+  profiles:
+    active: commons

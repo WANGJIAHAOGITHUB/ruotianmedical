@@ -1,0 +1,7 @@
+server:
+  port: 11144
+spring:
+  application:
+    name: ruotianmedical-patient-provider
+  profiles:
+    active: commons, data

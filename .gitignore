@@ -1,0 +1,9 @@
+# Project exclude paths
+/ruotianmedical-commons/target/
+/ruotianmedical-data-commons/target/
+/ruotianmedical-emr-provider/target/
+/ruotianmedical-patient-consumer/target/
+/ruotianmedical-patient-provider/target/
+/ruotianmedical-registry/target/
+/ruotianmedical-system-admin-consumer/target/
+/ruotianmedical-system-admin-provider/target/

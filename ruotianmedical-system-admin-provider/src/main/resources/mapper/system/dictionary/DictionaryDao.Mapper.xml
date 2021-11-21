@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.system.dictionary.dao.DictionaryDao">
+	<select id="findListByQuery" parameterType="Dictionary" resultMap="resultMap">
+		select
+			sd.id,
+			superior.id superiorId,
+			superior.name superiorName,
+			superior.code superiorCode,
+			sd.name,
+			sd.code,
+			sd.status,
+			sd.createUser,
+			sd.createTime,
+			sd.updateUser,
+			sd.updateTime
+		from
+			sys_dictionary sd left join sys_dictionary superior on sd.superior=superior.code
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">sd.id = #{id} and </if>
+				<if test="name != null and name != ''">sd.name = #{name} and </if>
+				<if test="code != null and code != ''">sd.code = #{code} and </if>
+				<if test="status != null and status != ''">sd.status = #{status} and </if>
+				<if test="superior != null and superior.id != null and superior.id != ''">superior.id = #{superior.id} and </if>
+				<if test="superior != null and superior.name != null and superior.name != ''">superior.name = #{superior.name} and </if>
+				<if test="superior != null and superior.code != null and superior.code != ''">superior.code = #{superior.code} and </if>
+				<if test="superior != null and superior.status != null and superior.status != ''">superior.status = #{superior.status} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="insert" parameterType="Dictionary">
+		insert into sys_dictionary
+		<trim suffixOverrides="," prefix="(" suffix=")">
+			<if test="id != null and id != ''">id, </if>
+			<if test="superior != null and superior.code != null and superior.code != ''">superior, </if>
+			<if test="name != null and name != ''">name, </if>
+			<if test="code != null and code != ''">code, </if>
+			<if test="status != null and status != ''">status, </if>
+			<if test="createUser != null and createUser != ''">createUser, </if>
+			<if test="createTime != null and createTime != ''">createTime, </if>
+			<if test="updateUser != null and updateUser != ''">updateUser, </if>
+			<if test="updateTime != null and updateTime != ''">updateTime, </if>
+		</trim>
+		values
+		<trim suffixOverrides="," prefix="(" suffix=")">
+			<if test="id != null and id != ''">#{id}, </if>
+			<if test="superior != null and superior.code != null and superior.code != ''">#{superior.code}, </if>
+			<if test="name != null and name != ''">#{name}, </if>
+			<if test="code != null and code != ''">#{code}, </if>
+			<if test="status != null and status != ''">#{status}, </if>
+			<if test="createUser != null and createUser != ''">#{createUser}, </if>
+			<if test="createTime != null and createTime != ''">#{createTime}, </if>
+			<if test="updateUser != null and updateUser != ''">#{updateUser}, </if>
+			<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+		</trim>
+	</insert>
+
+	<update id="modify" parameterType="Dictionary">
+		update sys_dictionary
+		<set>
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">id = #{id}, </if>
+				<if test="superior != null and superior.code != null and superior.code != ''">superior = #{superior.code}, </if>
+				<if test="name != null and name != ''">name = #{name}, </if>
+				<if test="code != null and code != ''">code = #{code}, </if>
+				<if test="status != null and status != ''">status = #{status}, </if>
+				<if test="createUser != null and createUser != ''">createUser = #{createUser}, </if>
+				<if test="createTime != null and createTime != ''">createTime = #{createTime}, </if>
+				<if test="updateUser != null and updateUser != ''">updateUser = #{updateUser}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime = #{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id = #{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="Dictionary">
+		<id property="id" javaType="java.lang.String" column="id"/>
+		<result property="name" javaType="java.lang.String" column="name"/>
+		<result property="code" javaType="java.lang.String" column="code"/>
+		<result property="status" javaType="java.lang.String" column="status"/>
+		<result property="createUser" javaType="java.lang.String" column="createUser"/>
+		<result property="createTime" javaType="java.util.Date" column="createTime"/>
+		<result property="updateUser" javaType="java.lang.String" column="updateUser"/>
+		<result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+		<association property="superior" javaType="Dictionary">
+			<id property="id" javaType="java.lang.String" column="superiorId"/>
+			<result property="name" javaType="java.lang.String" column="superiorName"/>
+			<result property="code" javaType="java.lang.String" column="superiorCode"/>
+		</association>
+	</resultMap>
+</mapper>

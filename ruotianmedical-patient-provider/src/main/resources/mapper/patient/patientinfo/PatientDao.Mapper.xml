@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.patient.patientinfo.dao.PatientDao">
+	<select id="findListByQuery" parameterType="Patient" resultMap="resultMap">
+		select
+		    p.id
+		    p.name
+		    p.emrNo
+		    p.noCat
+		    p.no
+		    p.noEffDate
+		    p.noExpDate
+		    p.aboBlood
+		    p.rhBlood
+		    p.gender
+		    p.nationality
+		    p.ethnic
+		    p.marital
+		    p.occCode
+		    p.birthday
+		    p.birthPlace
+		    p.workUnitName
+		    p.addrCat
+		    p.provence
+		    p.city
+		    p.district
+		    p.subdistrict
+		    p.village
+		    p.houseNo
+		    p.zipCode
+		    p.status
+		    p.createAdmin
+		    p.createTime
+		    p.updateAdmin
+		    p.updateTime
+		from
+			patient p
+		<where>
+			<trim suffixOverrides="and">
+                <if test="id != null and id != ''">p.id=#{id} and </if>
+                <if test="name != null and name != ''">p.name=#{name} and </if>
+                <if test="emrNo != null and emrNo != ''">p.emrNo=#{emrNo} and </if>
+                <if test="noCat != null and noCat != ''">p.noCat=#{noCat} and </if>
+                <if test="no != null and no != ''">p.no=#{no} and </if>
+                <if test="noEffDate != null and noEffDate != ''">p.noEffDate=#{noEffDate} and </if>
+                <if test="noExpDate != null and noExpDate != ''">p.noExpDate=#{noExpDate} and </if>
+                <if test="aboBlood != null and aboBlood != ''">p.aboBlood=#{aboBlood} and </if>
+                <if test="rhBlood != null and rhBlood != ''">p.rhBlood=#{rhBlood} and </if>
+                <if test="gender != null and gender != ''">p.gender=#{gender} and </if>
+                <if test="nationality != null and nationality != ''">p.nationality=#{nationality} and </if>
+                <if test="ethnic != null and ethnic != ''">p.ethnic=#{ethnic} and </if>
+                <if test="marital != null and marital != ''">p.marital=#{marital} and </if>
+                <if test="occCode != null and occCode != ''">p.occCode=#{occCode} and </if>
+                <if test="birthday != null and birthday != ''">p.birthday=#{birthday} and </if>
+                <if test="birthPlace != null and birthPlace != ''">p.birthPlace=#{birthPlace} and </if>
+                <if test="workUnitName != null and workUnitName != ''">p.workUnitName=#{workUnitName} and </if>
+                <if test="addrCat != null and addrCat != ''">p.addrCat=#{addrCat} and </if>
+                <if test="provence != null and provence != ''">p.provence=#{provence} and </if>
+                <if test="city != null and city != ''">p.city=#{city} and </if>
+                <if test="district != null and district != ''">p.district=#{district} and </if>
+                <if test="subdistrict != null and subdistrict != ''">p.subdistrict=#{subdistrict} and </if>
+                <if test="village != null and village != ''">p.village=#{village} and </if>
+                <if test="houseNo != null and houseNo != ''">p.houseNo=#{houseNo} and </if>
+                <if test="zipCode != null and zipCode != ''">p.zipCode=#{zipCode} and </if>
+                <if test="status != null and status != ''">p.status=#{status} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="Patient">
+		insert into patient(
+			<trim suffixOverrides=",">
+		        <if test="id != null and id != ''">id, </if>
+		        <if test="name != null and name != ''">name, </if>
+		        <if test="emrNo != null and emrNo != ''">emrNo, </if>
+		        <if test="noCat != null and noCat != ''">noCat, </if>
+		        <if test="no != null and no != ''">no, </if>
+		        <if test="noEffDate != null and noEffDate != ''">noEffDate, </if>
+		        <if test="noExpDate != null and noExpDate != ''">noExpDate, </if>
+		        <if test="aboBlood != null and aboBlood != ''">aboBlood, </if>
+		        <if test="rhBlood != null and rhBlood != ''">rhBlood, </if>
+		        <if test="gender != null and gender != ''">gender, </if>
+		        <if test="nationality != null and nationality != ''">nationality, </if>
+		        <if test="ethnic != null and ethnic != ''">ethnic, </if>
+		        <if test="marital != null and marital != ''">marital, </if>
+		        <if test="occCode != null and occCode != ''">occCode, </if>
+		        <if test="birthday != null and birthday != ''">birthday, </if>
+		        <if test="birthPlace != null and birthPlace != ''">birthPlace, </if>
+		        <if test="workUnitName != null and workUnitName != ''">workUnitName, </if>
+		        <if test="addrCat != null and addrCat != ''">addrCat, </if>
+		        <if test="provence != null and provence != ''">provence, </if>
+		        <if test="city != null and city != ''">city, </if>
+		        <if test="district != null and district != ''">district, </if>
+		        <if test="subdistrict != null and subdistrict != ''">subdistrict, </if>
+		        <if test="village != null and village != ''">village, </if>
+		        <if test="houseNo != null and houseNo != ''">houseNo, </if>
+		        <if test="zipCode != null and zipCode != ''">zipCode, </if>
+		        <if test="status != null and status != ''">status, </if>
+		        <if test="createAdmin != null and createAdmin != ''">createAdmin, </if>
+		        <if test="createTime != null and createTime != ''">createTime, </if>
+		        <if test="updateAdmin != null and updateAdmin != ''">updateAdmin, </if>
+		        <if test="updateTime != null and updateTime != ''">updateTime, </if>
+			</trim>
+		) values(
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">#{id}, </if>
+				<if test="name != null and name != ''">#{name}, </if>
+				<if test="emrNo != null and emrNo != ''">#{emrNo}, </if>
+				<if test="noCat != null and noCat != ''">#{noCat}, </if>
+				<if test="no != null and no != ''">#{no}, </if>
+				<if test="noEffDate != null and noEffDate != ''">#{noEffDate}, </if>
+				<if test="noExpDate != null and noExpDate != ''">#{noExpDate}, </if>
+				<if test="aboBlood != null and aboBlood != ''">#{aboBlood}, </if>
+				<if test="rhBlood != null and rhBlood != ''">#{rhBlood}, </if>
+				<if test="gender != null and gender != ''">#{gender}, </if>
+				<if test="nationality != null and nationality != ''">#{nationality}, </if>
+				<if test="ethnic != null and ethnic != ''">#{ethnic}, </if>
+				<if test="marital != null and marital != ''">#{marital}, </if>
+				<if test="occCode != null and occCode != ''">#{occCode}, </if>
+				<if test="birthday != null and birthday != ''">#{birthday}, </if>
+				<if test="birthPlace != null and birthPlace != ''">#{birthPlace}, </if>
+				<if test="workUnitName != null and workUnitName != ''">#{workUnitName}, </if>
+				<if test="addrCat != null and addrCat != ''">#{addrCat}, </if>
+				<if test="provence != null and provence != ''">#{provence}, </if>
+				<if test="city != null and city != ''">#{city}, </if>
+				<if test="district != null and district != ''">#{district}, </if>
+				<if test="subdistrict != null and subdistrict != ''">#{subdistrict}, </if>
+				<if test="village != null and village != ''">#{village}, </if>
+				<if test="houseNo != null and houseNo != ''">#{houseNo}, </if>
+				<if test="zipCode != null and zipCode != ''">#{zipCode}, </if>
+				<if test="status != null and status != ''">#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+			</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="Patient">
+		update patient
+		<set>
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">id=#{id}, </if>
+				<if test="name != null and name != ''">name=#{name}, </if>
+				<if test="emrNo != null and emrNo != ''">emrNo=#{emrNo}, </if>
+				<if test="noCat != null and noCat != ''">noCat=#{noCat}, </if>
+				<if test="no != null and no != ''">no=#{no}, </if>
+				<if test="noEffDate != null and noEffDate != ''">noEffDate=#{noEffDate}, </if>
+				<if test="noExpDate != null and noExpDate != ''">noExpDate=#{noExpDate}, </if>
+				<if test="aboBlood != null and aboBlood != ''">aboBlood=#{aboBlood}, </if>
+				<if test="rhBlood != null and rhBlood != ''">rhBlood=#{rhBlood}, </if>
+				<if test="gender != null and gender != ''">gender=#{gender}, </if>
+				<if test="nationality != null and nationality != ''">nationality=#{nationality}, </if>
+				<if test="ethnic != null and ethnic != ''">ethnic=#{ethnic}, </if>
+				<if test="marital != null and marital != ''">marital=#{marital}, </if>
+				<if test="occCode != null and occCode != ''">occCode=#{occCode}, </if>
+				<if test="birthday != null and birthday != ''">birthday=#{birthday}, </if>
+				<if test="birthPlace != null and birthPlace != ''">birthPlace=#{birthPlace}, </if>
+				<if test="workUnitName != null and workUnitName != ''">workUnitName=#{workUnitName}, </if>
+				<if test="addrCat != null and addrCat != ''">addrCat=#{addrCat}, </if>
+				<if test="provence != null and provence != ''">provence=#{provence}, </if>
+				<if test="city != null and city != ''">city=#{city}, </if>
+				<if test="district != null and district != ''">district=#{district}, </if>
+				<if test="subdistrict != null and subdistrict != ''">subdistrict=#{subdistrict}, </if>
+				<if test="village != null and village != ''">village=#{village}, </if>
+				<if test="houseNo != null and houseNo != ''">houseNo=#{houseNo}, </if>
+				<if test="zipCode != null and zipCode != ''">zipCode=#{zipCode}, </if>
+				<if test="status != null and status != ''">status=#{status}, </if>
+				<if test="createAdmin != null and createAdmin != ''">createAdmin=#{createAdmin}, </if>
+				<if test="createTime != null and createTime != ''">createTime=#{createTime}, </if>
+				<if test="updateAdmin != null and updateAdmin != ''">updateAdmin=#{updateAdmin}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime=#{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id=#{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="Patient">
+		<id property="id" javaType="java.lang.String" column="id"/>
+	    <result property="id" javaType="java.lang.String" column="id"/>
+	    <result property="name" javaType="java.lang.String" column="name"/>
+	    <result property="emrNo" javaType="java.lang.String" column="emrNo"/>
+	    <result property="noCat" javaType="java.lang.String" column="noCat"/>
+	    <result property="no" javaType="java.lang.String" column="no"/>
+	    <result property="noEffDate" javaType="java.util.Date" column="noEffDate"/>
+	    <result property="noExpDate" javaType="java.util.Date" column="noExpDate"/>
+	    <result property="aboBlood" javaType="java.lang.String" column="aboBlood"/>
+	    <result property="rhBlood" javaType="java.lang.String" column="rhBlood"/>
+	    <result property="gender" javaType="java.lang.String" column="gender"/>
+	    <result property="nationality" javaType="java.lang.String" column="nationality"/>
+	    <result property="ethnic" javaType="java.lang.String" column="ethnic"/>
+	    <result property="marital" javaType="java.lang.String" column="marital"/>
+	    <result property="occCode" javaType="java.lang.String" column="occCode"/>
+	    <result property="birthday" javaType="java.util.Date" column="birthday"/>
+	    <result property="birthPlace" javaType="java.lang.String" column="birthPlace"/>
+	    <result property="workUnitName" javaType="java.lang.String" column="workUnitName"/>
+	    <result property="addrCat" javaType="java.lang.String" column="addrCat"/>
+	    <result property="provence" javaType="java.lang.String" column="provence"/>
+	    <result property="city" javaType="java.lang.String" column="city"/>
+	    <result property="district" javaType="java.lang.String" column="district"/>
+	    <result property="subdistrict" javaType="java.lang.String" column="subdistrict"/>
+	    <result property="village" javaType="java.lang.String" column="village"/>
+	    <result property="houseNo" javaType="java.lang.String" column="houseNo"/>
+	    <result property="zipCode" javaType="java.lang.String" column="zipCode"/>
+	    <result property="status" javaType="java.lang.String" column="status"/>
+	    <result property="createAdmin" javaType="java.lang.String" column="createAdmin"/>
+	    <result property="createTime" javaType="java.util.Date" column="createTime"/>
+	    <result property="updateAdmin" javaType="java.lang.String" column="updateAdmin"/>
+	    <result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+	</resultMap>
+</mapper>

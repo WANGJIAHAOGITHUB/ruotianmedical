@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.emr.summary.dao.SummaryLiaisonDao">
+	<select id="findListByQuery" parameterType="SummaryLiaison" resultMap="resultMap">
+		select
+		    esl.id
+		    esl.summary
+		    esl.noCatCode
+		    esl.no
+		    esl.noEffDate
+		    esl.noExpDate
+		    esl.noOrgName
+		    esl.objCat
+		    esl.objCatCode
+		    esl.name
+		    esl.status
+		    esl.createUser
+		    esl.createTime
+		    esl.updateUser
+		    esl.updateTime
+		from
+			emr_summary_liaison esl
+		<where>
+			<trim suffixOverrides="and">
+                <if test="id != null and id != ''">esl.id=#{id} and </if>
+                <if test="summary != null and summary != ''">esl.summary=#{summary} and </if>
+                <if test="noCatCode != null and noCatCode != ''">esl.noCatCode=#{noCatCode} and </if>
+                <if test="no != null and no != ''">esl.no=#{no} and </if>
+                <if test="noEffDate != null and noEffDate != ''">esl.noEffDate=#{noEffDate} and </if>
+                <if test="noExpDate != null and noExpDate != ''">esl.noExpDate=#{noExpDate} and </if>
+                <if test="noOrgName != null and noOrgName != ''">esl.noOrgName=#{noOrgName} and </if>
+                <if test="objCat != null and objCat != ''">esl.objCat=#{objCat} and </if>
+                <if test="objCatCode != null and objCatCode != ''">esl.objCatCode=#{objCatCode} and </if>
+                <if test="name != null and name != ''">esl.name=#{name} and </if>
+                <if test="status != null and status != ''">esl.status=#{status} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="SummaryLiaison">
+		insert into emr_summary_liaison(
+			<trim suffixOverrides=",">
+		        <if test="id != null and id != ''">id, </if>
+		        <if test="summary != null and summary != ''">summary, </if>
+		        <if test="noCatCode != null and noCatCode != ''">noCatCode, </if>
+		        <if test="no != null and no != ''">no, </if>
+		        <if test="noEffDate != null and noEffDate != ''">noEffDate, </if>
+		        <if test="noExpDate != null and noExpDate != ''">noExpDate, </if>
+		        <if test="noOrgName != null and noOrgName != ''">noOrgName, </if>
+		        <if test="objCat != null and objCat != ''">objCat, </if>
+		        <if test="objCatCode != null and objCatCode != ''">objCatCode, </if>
+		        <if test="name != null and name != ''">name, </if>
+		        <if test="status != null and status != ''">status, </if>
+		        <if test="createUser != null and createUser != ''">createUser, </if>
+		        <if test="createTime != null and createTime != ''">createTime, </if>
+		        <if test="updateUser != null and updateUser != ''">updateUser, </if>
+		        <if test="updateTime != null and updateTime != ''">updateTime, </if>
+			</trim>
+		) values(
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">#{id}, </if>
+				<if test="summary != null and summary != ''">#{summary}, </if>
+				<if test="noCatCode != null and noCatCode != ''">#{noCatCode}, </if>
+				<if test="no != null and no != ''">#{no}, </if>
+				<if test="noEffDate != null and noEffDate != ''">#{noEffDate}, </if>
+				<if test="noExpDate != null and noExpDate != ''">#{noExpDate}, </if>
+				<if test="noOrgName != null and noOrgName != ''">#{noOrgName}, </if>
+				<if test="objCat != null and objCat != ''">#{objCat}, </if>
+				<if test="objCatCode != null and objCatCode != ''">#{objCatCode}, </if>
+				<if test="name != null and name != ''">#{name}, </if>
+				<if test="status != null and status != ''">#{status}, </if>
+				<if test="createUser != null and createUser != ''">#{createUser}, </if>
+				<if test="createTime != null and createTime != ''">#{createTime}, </if>
+				<if test="updateUser != null and updateUser != ''">#{updateUser}, </if>
+				<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+			</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="SummaryLiaison">
+		update emr_summary_liaison
+		<set>
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">id=#{id}, </if>
+				<if test="summary != null and summary != ''">summary=#{summary}, </if>
+				<if test="noCatCode != null and noCatCode != ''">noCatCode=#{noCatCode}, </if>
+				<if test="no != null and no != ''">no=#{no}, </if>
+				<if test="noEffDate != null and noEffDate != ''">noEffDate=#{noEffDate}, </if>
+				<if test="noExpDate != null and noExpDate != ''">noExpDate=#{noExpDate}, </if>
+				<if test="noOrgName != null and noOrgName != ''">noOrgName=#{noOrgName}, </if>
+				<if test="objCat != null and objCat != ''">objCat=#{objCat}, </if>
+				<if test="objCatCode != null and objCatCode != ''">objCatCode=#{objCatCode}, </if>
+				<if test="name != null and name != ''">name=#{name}, </if>
+				<if test="status != null and status != ''">status=#{status}, </if>
+				<if test="createUser != null and createUser != ''">createUser=#{createUser}, </if>
+				<if test="createTime != null and createTime != ''">createTime=#{createTime}, </if>
+				<if test="updateUser != null and updateUser != ''">updateUser=#{updateUser}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime=#{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id=#{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="SummaryLiaison">
+		<id property="id" javaType="java.lang.String" column="id"/>
+	    <result property="id" javaType="java.lang.String" column="id"/>
+	    <result property="summary" javaType="java.lang.String" column="summary"/>
+	    <result property="noCatCode" javaType="java.lang.String" column="noCatCode"/>
+	    <result property="no" javaType="java.lang.String" column="no"/>
+	    <result property="noEffDate" javaType="java.util.Date" column="noEffDate"/>
+	    <result property="noExpDate" javaType="java.util.Date" column="noExpDate"/>
+	    <result property="noOrgName" javaType="java.lang.String" column="noOrgName"/>
+	    <result property="objCat" javaType="java.lang.String" column="objCat"/>
+	    <result property="objCatCode" javaType="java.lang.String" column="objCatCode"/>
+	    <result property="name" javaType="java.lang.String" column="name"/>
+	    <result property="status" javaType="java.lang.String" column="status"/>
+	    <result property="createUser" javaType="java.lang.String" column="createUser"/>
+	    <result property="createTime" javaType="java.util.Date" column="createTime"/>
+	    <result property="updateUser" javaType="java.lang.String" column="updateUser"/>
+	    <result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+	</resultMap>
+</mapper>

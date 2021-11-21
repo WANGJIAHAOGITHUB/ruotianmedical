@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ekgc.medical.emr.summary.dao.SummaryPastDiseaseDao">
+	<select id="findListByQuery" parameterType="SummaryPastDisease" resultMap="resultMap">
+		select
+		    espd.id
+		    espd.patient
+		    espd.history
+		    espd.disease
+		    espd.org
+		    espd.diagnosisDate
+		    espd.statusCode
+		    espd.status
+		    espd.createUser
+		    espd.createTime
+		    espd.updateUser
+		    espd.updateTime
+		from
+			emr_summary_past_disease espd
+		<where>
+			<trim suffixOverrides="and">
+                <if test="id != null and id != ''">espd.id=#{id} and </if>
+                <if test="patient != null and patient != ''">espd.patient=#{patient} and </if>
+                <if test="history != null and history != ''">espd.history=#{history} and </if>
+                <if test="disease != null and disease != ''">espd.disease=#{disease} and </if>
+                <if test="org != null and org != ''">espd.org=#{org} and </if>
+                <if test="diagnosisDate != null and diagnosisDate != ''">espd.diagnosisDate=#{diagnosisDate} and </if>
+                <if test="statusCode != null and statusCode != ''">espd.statusCode=#{statusCode} and </if>
+                <if test="status != null and status != ''">espd.status=#{status} and </if>
+			</trim>
+		</where>
+	</select>
+
+	<insert id="save" parameterType="SummaryPastDisease">
+		insert into emr_summary_past_disease(
+			<trim suffixOverrides=",">
+		        <if test="id != null and id != ''">id, </if>
+		        <if test="patient != null and patient != ''">patient, </if>
+		        <if test="history != null and history != ''">history, </if>
+		        <if test="disease != null and disease != ''">disease, </if>
+		        <if test="org != null and org != ''">org, </if>
+		        <if test="diagnosisDate != null and diagnosisDate != ''">diagnosisDate, </if>
+		        <if test="statusCode != null and statusCode != ''">statusCode, </if>
+		        <if test="status != null and status != ''">status, </if>
+		        <if test="createUser != null and createUser != ''">createUser, </if>
+		        <if test="createTime != null and createTime != ''">createTime, </if>
+		        <if test="updateUser != null and updateUser != ''">updateUser, </if>
+		        <if test="updateTime != null and updateTime != ''">updateTime, </if>
+			</trim>
+		) values(
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">#{id}, </if>
+				<if test="patient != null and patient != ''">#{patient}, </if>
+				<if test="history != null and history != ''">#{history}, </if>
+				<if test="disease != null and disease != ''">#{disease}, </if>
+				<if test="org != null and org != ''">#{org}, </if>
+				<if test="diagnosisDate != null and diagnosisDate != ''">#{diagnosisDate}, </if>
+				<if test="statusCode != null and statusCode != ''">#{statusCode}, </if>
+				<if test="status != null and status != ''">#{status}, </if>
+				<if test="createUser != null and createUser != ''">#{createUser}, </if>
+				<if test="createTime != null and createTime != ''">#{createTime}, </if>
+				<if test="updateUser != null and updateUser != ''">#{updateUser}, </if>
+				<if test="updateTime != null and updateTime != ''">#{updateTime}, </if>
+			</trim>
+		)
+	</insert>
+
+	<update id="update" parameterType="SummaryPastDisease">
+		update emr_summary_past_disease
+		<set>
+			<trim suffixOverrides=",">
+				<if test="id != null and id != ''">id=#{id}, </if>
+				<if test="patient != null and patient != ''">patient=#{patient}, </if>
+				<if test="history != null and history != ''">history=#{history}, </if>
+				<if test="disease != null and disease != ''">disease=#{disease}, </if>
+				<if test="org != null and org != ''">org=#{org}, </if>
+				<if test="diagnosisDate != null and diagnosisDate != ''">diagnosisDate=#{diagnosisDate}, </if>
+				<if test="statusCode != null and statusCode != ''">statusCode=#{statusCode}, </if>
+				<if test="status != null and status != ''">status=#{status}, </if>
+				<if test="createUser != null and createUser != ''">createUser=#{createUser}, </if>
+				<if test="createTime != null and createTime != ''">createTime=#{createTime}, </if>
+				<if test="updateUser != null and updateUser != ''">updateUser=#{updateUser}, </if>
+				<if test="updateTime != null and updateTime != ''">updateTime=#{updateTime}, </if>
+			</trim>
+		</set>
+		<where>
+			<trim suffixOverrides="and">
+				<if test="id != null and id != ''">id=#{id} and </if>
+			</trim>
+		</where>
+	</update>
+
+	<resultMap id="resultMap" type="SummaryPastDisease">
+		<id property="id" javaType="java.lang.String" column="id"/>
+	    <result property="id" javaType="java.lang.String" column="id"/>
+	    <result property="patient" javaType="java.lang.String" column="patient"/>
+	    <result property="history" javaType="java.lang.String" column="history"/>
+	    <result property="disease" javaType="java.lang.String" column="disease"/>
+	    <result property="org" javaType="java.lang.String" column="org"/>
+	    <result property="diagnosisDate" javaType="java.util.Date" column="diagnosisDate"/>
+	    <result property="statusCode" javaType="java.lang.String" column="statusCode"/>
+	    <result property="status" javaType="java.lang.String" column="status"/>
+	    <result property="createUser" javaType="java.lang.String" column="createUser"/>
+	    <result property="createTime" javaType="java.util.Date" column="createTime"/>
+	    <result property="updateUser" javaType="java.lang.String" column="updateUser"/>
+	    <result property="updateTime" javaType="java.util.Date" column="updateTime"/>
+	</resultMap>
+</mapper>
